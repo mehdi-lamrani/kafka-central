@@ -1,6 +1,5 @@
 package com.sylace.org;
 
-import com.sylace.org.kafka.client.AlphaProducer;
 import com.sylace.org.kafka.client.HelloConsumer;
 import com.sylace.org.kafka.client.HelloProducer;
 import com.sylace.org.kafka.stream.HelloStream;
@@ -19,9 +18,8 @@ public class KafkaCentral {
         System.out.println("\033[3m   WELCOME TO KAFKA CENTRAL V1.0 \033[0m");
         System.out.println(CYAN+"-------------------------------------");
         System.out.println(GREEN+"\nOptions:");
-        System.out.println("0: Run Producer");
-        System.out.println("1: Run Consumer");
-        System.out.println("2: Run Alpha Prod");
+        System.out.println("1: Run Producer");
+        System.out.println("2: Run Consumer");
         System.out.println("3: Run Stream");
         System.out.println("q: Quit");
 
@@ -34,29 +32,19 @@ public class KafkaCentral {
             choice = scan.nextLine();
 
             switch (choice) {
-                case "0":
+                case "1":
                     System.out.println("0: Running Producer");
                     if (stamp==0) stamp = new java.util.Date().getTime();
                     HelloProducer.run("MAVEN-" + stamp);
                     break;
-                case "1":
+                case "2":
                     System.out.println("1: Running Consumer");
                     if (stamp==0) stamp = new java.util.Date().getTime();
                     HelloConsumer.run("MAVEN-" + stamp);
                     break;
-                case "2":
-                    System.out.println("2: Running Alpha");
-                    if (stamp==0) stamp = new java.util.Date().getTime();
-                    AlphaProducer.run("ALPHA-" + stamp);
-                    break;
                 case "3":
                     HelloStream.run();
                     System.out.println("3: Running Stream");
-                    break;
-                case "c":
-                    System.out.println("Enter the first number");
-                    int input1 = scan.nextInt();
-                    System.out.println("Enter the second number");
                     break;
                 case "q":
                     exit = true;
