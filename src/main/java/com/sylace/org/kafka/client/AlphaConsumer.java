@@ -30,6 +30,8 @@ public class AlphaConsumer {
             System.out.println("Polling...");
             // @TODO-IMPLEMENT
 
+            //SAME LOGIC AS PRECEDENT EXERCISE
+
             // use consumer.poll to retrieve records
 
             //print count
