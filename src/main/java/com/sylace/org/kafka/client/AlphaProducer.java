@@ -14,6 +14,8 @@ public class AlphaProducer {
 
     public static void run(String topicName) throws Exception {
 
+        //@TODO-IMPLEMENT
+        //define getProducerProps in PropertyFactory
         Properties props = PropertyFactory.getProducerProps();
 
         Producer<String, String> producer = new KafkaProducer<String, String>(props);
@@ -21,10 +23,16 @@ public class AlphaProducer {
         do {
             System.out.println("TOPIC:"+topicName);
             List<OhlcDTO> listOHLC = AlphaConnect.getOHLC();
-            for (OhlcDTO ohlc : listOHLC)
-                producer.send(new ProducerRecord<String, String>(topicName,
-                        ohlc.timestamp, ohlc.close));
+
+            // @TODO-IMPLEMENT
+            // retrieve List<OhlcDTO> from AlphaConnect.getOHLC();
+            // iterate over it, and use producer.send to send
+            //      - timestamp as key
+            //      - a selected field as value (open, high, low, or close)
+
+
             System.out.println("Message sent successfully to topic " + topicName);
+
             //Sleep 1 Minute
             Thread.sleep(60000);
         }while(true);

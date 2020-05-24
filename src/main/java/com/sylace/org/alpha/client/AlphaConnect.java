@@ -10,7 +10,9 @@ import java.net.URL;
 import java.util.List;
 import java.io.FileReader;
 
-
+/**
+ * This class connects to AlphaVantage API And returns a list of OhlcDTO objects
+ */
 public class AlphaConnect {
 
     public static List<OhlcDTO> getOHLC() throws Exception {

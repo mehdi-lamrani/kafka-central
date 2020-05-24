@@ -12,7 +12,8 @@ public class AlphaConsumer {
 
     public static void run(String topicName){
 
-
+        //@TODO-IMPLEMENT
+        //define getConsumerProps in PropertyFactory
         Properties props = PropertyFactory.getConsumerProps();
         props.put("group.id", "GROUP-"+topicName);
 
@@ -20,20 +21,29 @@ public class AlphaConsumer {
 
         //Kafka Consumer subscribes list of topics here.
         consumer.subscribe(Arrays.asList(topicName));
+
         //print the topic name
         System.out.println("Subscribed to topic " + topicName);
 
         //REMINDER : The console consumer has the default option of looking at the latest offset for all partitions
         while (true) {
             System.out.println("Polling...");
-            ConsumerRecords<String, String> records = consumer.poll(Duration.ofSeconds(10));
-            System.out.println("Records No : " + records.count());
-            for (ConsumerRecord<String, String> record : records) {
-                System.out.println("Iterating...");
-                // print the offset,key and value for the consumer records.
-                System.out.printf("offset = %d, key = %s, value = %s\n",
-                        record.offset(), record.key(), record.value());
-            }
+            // @TODO-IMPLEMENT
+
+            // use consumer.poll to retrieve records
+
+            //print count
+            // System.out.println("Records No : " + records.count());
+
+            // @TODO-IMPLEMENT
+
+            // iterate over records
+            // for each consumer record, print :
+            // record.offset(), record.key(), and record.value()
+
+            //for (ConsumerRecord<String, String> record : records) {
+                //
+            //}
         }
     }
 }
