@@ -25,12 +25,21 @@ public class HelloStream {
     props.put(StreamsConfig.DEFAULT_VALUE_SERDE_CLASS_CONFIG, Serdes.String().getClass());
 
     StreamsBuilder builder = new StreamsBuilder();
-    KStream<String, String> textLines = builder.stream("TEXT");
-    KTable<String, Long> wordCounts = textLines
-            .flatMapValues(textLine -> Arrays.asList(textLine.toLowerCase().split("\\W+")))
-            .groupBy((key, word) -> word)
-            .count(Materialized.<String, Long, KeyValueStore<Bytes, byte[]>>as("counts-store"));
-    wordCounts.toStream().to("WORD", Produced.with(Serdes.String(), Serdes.Long()));
+
+
+        // @TODO : IMPLEMENT
+
+        //  1 - Define a KStream, representing textlines, that is returned from a builder.stream()
+        //  from the TOPIC  TEXT-STREAM-INPUT
+
+        //  2 - Define a KTable that is the result of a transformation of the Kstream
+        //  You can use lambda, or plain old java
+        //      a. flatMapValues to lover case
+        //      b. groupBy word
+        //      c. Materialize the count : count > Materialized as <String, Long, KeyValueStore<Bytes, byte[]>>as("counts-store")
+
+        //  3 - Output your Defined KTable to an output stream
+        //  yourKTable.toStream().to("TEXT-STREAM-OUTPUT", Produced.with(Serdes.String(), Serdes.Long()));
 
     KafkaStreams streams = new KafkaStreams(builder.build(), props);
     streams.start();
