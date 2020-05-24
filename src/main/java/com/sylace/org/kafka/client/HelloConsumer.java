@@ -36,8 +36,15 @@ public class HelloConsumer {
 
         //REMINDER : The console consumer has the default option of looking at the latest offset for all partitions
         while (true) {
-            //@TODO : IMPLEMENT
-            // SAME LOGIC AS PRECEDENT EXERCISE : Polling from Consumer and displaying records
+            // @TODO-IMPLEMENT
+
+            // iterate over records
+            // for each consumer record, print :
+            // record.offset(), record.key(), and record.value()
+
+            //for (ConsumerRecord<String, String> record : records) {
+            //
+            //}
         }
     }
 }
