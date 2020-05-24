@@ -24,7 +24,7 @@ public class KafkaCentral {
         System.out.println("q: Quit");
 
         String choice="";
-        long stamp=99;
+        long stamp=0;
         boolean exit = false;
         do {
             System.out.print("\nCommand : ");
