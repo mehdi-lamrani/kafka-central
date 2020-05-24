@@ -2,7 +2,6 @@ package com.sylace.org;
 
 import com.sylace.org.kafka.client.HelloConsumer;
 import com.sylace.org.kafka.client.HelloProducer;
-import com.sylace.org.kafka.stream.HelloStream;
 
 import java.util.Scanner;
 
@@ -20,11 +19,10 @@ public class KafkaCentral {
         System.out.println(GREEN+"\nOptions:");
         System.out.println("1: Run Producer");
         System.out.println("2: Run Consumer");
-        System.out.println("3: Run Stream");
         System.out.println("q: Quit");
 
         String choice="";
-        long stamp=99;
+        long stamp=0;
         boolean exit = false;
         do {
             System.out.print("\nCommand : ");
@@ -41,10 +39,6 @@ public class KafkaCentral {
                     System.out.println("1: Running Consumer");
                     if (stamp==0) stamp = new java.util.Date().getTime();
                     HelloConsumer.run("MAVEN-" + stamp);
-                    break;
-                case "3":
-                    HelloStream.run();
-                    System.out.println("3: Running Stream");
                     break;
                 case "q":
                     exit = true;

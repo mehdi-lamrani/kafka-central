@@ -15,18 +15,19 @@ public class HelloConsumer {
 
         Properties props = new Properties();
 
-        props.put("bootstrap.servers", "localhost:9092");
+        //@TODO : ASSIGN LOCALHOST ADDRESS AND KAFKA BROKER PORT
+        props.put("bootstrap.servers", " X  X  X  X  X  X  X  X ");
+
         props.put("group.id", "GROUP-"+topicName);
         props.put("enable.auto.commit", "true");
         props.put("auto.commit.interval.ms", "1000");
         props.put("session.timeout.ms", "30000");
 
-        props.put("key.deserializer",
-                "org.apache.kafka.common.serialization.StringDeserializer");
-        props.put("value.deserializer",
-                "org.apache.kafka.common.serialization.StringDeserializer");
-        KafkaConsumer<String, String> consumer = new KafkaConsumer
-                <String, String>(props);
+        //@TODO : ASSIGN DE-SERIALIZERS
+        props.put("key.deserializer", " X  X  X  X  X  X  X  X ");
+        props.put("value.deserializer", " X  X  X  X  X  X  X  X ");
+
+        KafkaConsumer<String, String> consumer = new KafkaConsumer<String, String>(props);
 
         //Kafka Consumer subscribes list of topics here.
         consumer.subscribe(Arrays.asList(topicName));
@@ -35,15 +36,8 @@ public class HelloConsumer {
 
         //REMINDER : The console consumer has the default option of looking at the latest offset for all partitions
         while (true) {
-            System.out.println("Polling...");
-            ConsumerRecords<String, String> records = consumer.poll(Duration.ofSeconds(10));
-            System.out.println("Records No : " + records.count());
-            for (ConsumerRecord<String, String> record : records) {
-                System.out.println("Iterating...");
-                // print the offset,key and value for the consumer records.
-                System.out.printf("offset = %d, key = %s, value = %s\n",
-                        record.offset(), record.key(), record.value());
-            }
+            //@TODO : IMPLEMENT
+            // SAME LOGIC AS PRECEDENT EXERCISE : Polling from Consumer and displaying records
         }
     }
 }

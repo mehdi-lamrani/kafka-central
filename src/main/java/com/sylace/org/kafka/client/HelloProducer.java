@@ -12,34 +12,38 @@ public class HelloProducer {
 
         // create instance for properties to access producer configs
         Properties props = new Properties();
-        //Assign localhost id
-        props.put("bootstrap.servers", "localhost:9092");
+
+        //@TODO : ASSIGN LOCALHOST ADDRESS AND KAFKA BROKER PORT
+        //props.put("bootstrap.servers", " X  X  X  X  X  X  X  X ");
+
         //Set acknowledgements for producer requests.
         props.put("acks", "all");
+
         //If the request fails, the producer can automatically retry,
         props.put("retries", 0);
+
         //Specify buffer size in config
         props.put("batch.size", 16384);
+
         //Reduce the no of requests less than 0
         props.put("linger.ms", 1);
+
         //The buffer.memory controls the total amount of memory available to the producer for buffering.
         props.put("buffer.memory", 33554432);
 
-        props.put("key.serializer",
-              "org.apache.kafka.common.serialization.StringSerializer");
-        props.put("value.serializer",
-              "org.apache.kafka.common.serialization.StringSerializer");
+        //@TODO : ASSIGN SERIALIZERS
+        props.put("key.serializer", " X  X  X  X  X  X  X  X ");
+        props.put("value.serializer", " X  X  X  X  X  X  X  X ");
 
-        Producer<String, String> producer = new KafkaProducer
-            <String, String>(props);
+        Producer<String, String> producer = new KafkaProducer<String, String>(props);
 
         do {
-            for (int i = 0; i < 10; i++)
-                producer.send(new ProducerRecord<String, String>(topicName,
-                        Integer.toString(i), Integer.toString(i)));
-            System.out.println("Message sent successfully to topic " + topicName);
-            Thread.sleep(2000);
-        }while(true);
+            //@TODO : IMPLEMENT
+            // Run a perpetual nested loop where you send batches of ProducerRecords, Calling producer.send()
+            // Send strings as keys and values
+            // Use Thread.sleep between each batch to space them;
+            // You can improve the dirty "while true" by handling Ctrl-C Interruption Exception and hooking a Handler
+        } while(true);
 
         //producer.close();
     }
