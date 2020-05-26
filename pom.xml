@@ -55,6 +55,7 @@
                             <artifactSet>
                                 <includes>
                                     <include>org.apache.kafka:kafka-clients</include>
+                                    <include>org.slf4j:slf4j-api</include>
                                 </includes>
                             </artifactSet>
 
@@ -84,9 +85,6 @@
             <artifactId>slf4j-api</artifactId>
             <version>1.7.30</version>
         </dependency>
-
-
-
     </dependencies>
 
 
