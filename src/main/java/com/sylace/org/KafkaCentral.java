@@ -1,9 +1,11 @@
 package com.sylace.org;
 
-import com.sylace.org.kafka.client.AlphaProducer;
 import com.sylace.org.kafka.client.HelloConsumer;
 import com.sylace.org.kafka.client.HelloProducer;
-import com.sylace.org.kafka.stream.HelloStream;
+import com.sylace.org.kafka.client.AlphaProducer;
+import com.sylace.org.kafka.client.AlphaConsumer;
+
+//import com.sylace.org.kafka.stream.HelloStream;
 
 import java.util.Scanner;
 
@@ -45,12 +47,17 @@ public class KafkaCentral {
                     HelloConsumer.run("MAVEN-" + stamp);
                     break;
                 case "2":
-                    System.out.println("2: Running Alpha");
+                    System.out.println("2: Running Alpha Prodcuer");
                     if (stamp==0) stamp = new java.util.Date().getTime();
                     AlphaProducer.run("ALPHA-" + stamp);
                     break;
                 case "3":
-                    HelloStream.run();
+                    System.out.println("2: Running Alpha Consumer");
+                    if (stamp==0) stamp = new java.util.Date().getTime();
+                    AlphaConsumer.run("ALPHA-" + stamp);
+                    break;
+                case "4":
+                    //HelloStream.run();
                     System.out.println("3: Running Stream");
                     break;
                 case "c":
