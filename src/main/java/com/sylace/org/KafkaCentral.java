@@ -46,7 +46,7 @@ public class KafkaCentral {
                     HelloConsumer.run("MAVEN-" + stamp);
                     break;
                 case "2":
-                    System.out.println("2: Running Alpha Prodcuer");
+                    System.out.println("2: Running Alpha Producer");
                     if (stamp==0) stamp = new java.util.Date().getTime();
                     AlphaProducer.run("ALPHA-" + stamp);
                     break;
