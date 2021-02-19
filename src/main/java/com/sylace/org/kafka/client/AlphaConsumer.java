@@ -14,7 +14,7 @@ public class AlphaConsumer {
 
 
         Properties props = PropertyFactory.getConsumerProps();
-        props.put("group.id", "GROUP-"+topicName);
+        //props.put("group.id", "GROUP-"+topicName);
 
         KafkaConsumer<String, String> consumer = new KafkaConsumer<String, String>(props);
 
@@ -28,6 +28,7 @@ public class AlphaConsumer {
             System.out.println("Polling...");
             ConsumerRecords<String, String> records = consumer.poll(Duration.ofSeconds(10));
             System.out.println("Records No : " + records.count());
+
             for (ConsumerRecord<String, String> record : records) {
                 System.out.println("Iterating...");
                 // print the offset,key and value for the consumer records.

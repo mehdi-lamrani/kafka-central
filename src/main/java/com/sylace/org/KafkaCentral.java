@@ -23,8 +23,8 @@ public class KafkaCentral {
         System.out.println(GREEN+"\nOptions:");
         System.out.println("0: Run Producer");
         System.out.println("1: Run Consumer");
-        System.out.println("2: Run Alpha Prod");
-        System.out.println("3: Run Stream");
+        System.out.println("2: Run Alpha Producer");
+        System.out.println("3: Run Alpha Consumer");
         System.out.println("q: Quit");
 
         String choice="";
@@ -55,10 +55,6 @@ public class KafkaCentral {
                     System.out.println("2: Running Alpha Consumer");
                     if (stamp==0) stamp = new java.util.Date().getTime();
                     AlphaConsumer.run("ALPHA-" + stamp);
-                    break;
-                case "4":
-                    //HelloStream.run();
-                    System.out.println("3: Running Stream");
                     break;
                 case "c":
                     System.out.println("Enter the first number");
